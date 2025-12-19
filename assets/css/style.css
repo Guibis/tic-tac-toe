@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: cursive;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+main{
+    text-align: center;
+}
+
+hr{
+    font-weight: bold;
+    height: 3px;
+    background: black;
+    margin-bottom: 10px;
+}
+
+.tic-tac {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.tic-tac button {
+  width: 100px;
+  height: 100px;
+  margin: 5px;
+  cursor: pointer;
+  font-size: 50px;
+  background: #f7f7f7;
+}
+
+.reset{
+    background-color: cadetblue;
+    width: 4rem;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 15px;
+}
+
+@media(min-width: 1020px){
+    .tic-tac button {
+        width: 200px;
+        height: 200px;
+        margin: 5px;
+        cursor: pointer;
+        font-size: 100px;
+        background: #f7f7f7;
+    }
+
+    h1{
+        font-size: 45px;
+    }
+
+    .currentPlayer{
+        font-size: 40px;
+    }
+
+    .score{
+        font-size: 35px;
+    }
+
+    .reset{
+        background-color: cadetblue;
+        width: 8rem;
+        margin: 10px;
+        border-radius: 20px;
+        padding: 5px;
+        font-size: 30px;
+    }
+}
+
+@media(min-width: 2500px){
+    .tic-tac button {
+        width: 400px;
+        height: 400px;
+        margin: 5px;
+        cursor: pointer;
+        font-size: 150px;
+        background: #f7f7f7;
+    }
+
+    h1{
+        font-size: 85px;
+    }
+
+    .currentPlayer{
+        font-size: 80px;
+    }
+
+    .score{
+        font-size: 70px;
+    }
+
+    .reset{
+        background-color: cadetblue;
+        width: 16rem;
+        margin: 10px;
+        border-radius: 10px;
+        padding: 5px;
+        font-size: 60px;
+        border-radius: 40px;
+    }
+}
