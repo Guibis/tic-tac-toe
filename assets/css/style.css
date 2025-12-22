@@ -32,17 +32,17 @@ hr{
 }
 
 .tic-tac {
-  display: grid;
-  grid-template-columns: auto auto auto;
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 
 .tic-tac button {
-  width: 100px;
-  height: 100px;
-  margin: 5px;
-  cursor: pointer;
-  font-size: 50px;
-  background: #f7f7f7;
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 50px;
+    background: #f7f7f7;
 }
 
 .reset{
@@ -50,70 +50,62 @@ hr{
     width: 8rem;
     margin: 10px;
     border-radius: 10px;
+    border-style: none;
     cursor: pointer;
     padding: 5px;
     font-size: 15px;
+    box-shadow: 0 5px rgb(203, 216, 23);
+    transition: all .2s;
 }
 
-.reset:hover{
+.reset:active {
     background-color: rgb(203, 216, 23);
+    box-shadow: 0 2px rgb(203, 216, 23);
+    transform: translateY(4px);
+    transition: all .2s;
 }
 
-@media(min-width: 1020px){
-    .tic-tac button {
+.score{
+    line-height: .9;
+    margin: 10px 0px;
+}
+
+@media(min-width: 760px){
+    h1{
+        font-size: 46px;
+    }
+    .tic-tac button{
         width: 150px;
         height: 150px;
-        margin: 5px;
-        cursor: pointer;
-        font-size: 100px;
-        background: #f7f7f7;
     }
-
-    h1{
-        font-size: 45px;
-    }
-
     .currentPlayer{
-        font-size: 40px;
-    }
-
-    .score{
         font-size: 35px;
     }
-
+    .score{
+        font-size: 25px;
+    }
     .reset{
-        width: 16rem;
-        margin: 10px;
-        border-radius: 20px;
-        padding: 5px;
-        font-size: 30px;
+        font-size: 15px;
+        width: 11rem;
     }
 }
 
 @media(min-width: 2500px){
-    .tic-tac button {
-        width: 200px;
-        height: 200px;
-    }
-
     h1{
         font-size: 85px;
     }
-
+    .tic-tac button{
+        width: 280px;
+        height: 280px;
+    }
     .currentPlayer{
-        font-size: 80px;
+        font-size: 65px;
     }
-
     .score{
-        font-size: 70px;
+        font-size: 50px;
     }
-
     .reset{
-        width: 32rem;
-        margin: 10px;
-        border-radius: 10px;
-        padding: 5px;
-        font-size: 60px;
-        border-radius: 40px;
+        font-size: 30px;
+        width: 20rem;
     }
 }
