@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=PT+Serif+Caption:ital@0;1&display=swap');
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: cursive;
+    font-family: "PT Serif Caption", serif;
 }
 
 body{
@@ -10,11 +11,17 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: aliceblue;
 }
 
 main{
     text-align: center;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+h1{
+    font-family: "Fredericka the Great", serif;
 }
 
 hr{
@@ -26,7 +33,7 @@ hr{
 
 .tic-tac {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: auto auto auto;
 }
 
 .tic-tac button {
@@ -39,18 +46,23 @@ hr{
 }
 
 .reset{
-    background-color: cadetblue;
+    background-color: rgb(240, 255, 27);
     width: 8rem;
     margin: 10px;
     border-radius: 10px;
+    cursor: pointer;
     padding: 5px;
     font-size: 15px;
 }
 
+.reset:hover{
+    background-color: rgb(203, 216, 23);
+}
+
 @media(min-width: 1020px){
     .tic-tac button {
-        width: 170px;
-        height: 170px;
+        width: 150px;
+        height: 150px;
         margin: 5px;
         cursor: pointer;
         font-size: 100px;
@@ -70,7 +82,6 @@ hr{
     }
 
     .reset{
-        background-color: cadetblue;
         width: 16rem;
         margin: 10px;
         border-radius: 20px;
@@ -81,12 +92,8 @@ hr{
 
 @media(min-width: 2500px){
     .tic-tac button {
-        width: 400px;
-        height: 400px;
-        margin: 5px;
-        cursor: pointer;
-        font-size: 150px;
-        background: #f7f7f7;
+        width: 200px;
+        height: 200px;
     }
 
     h1{
@@ -102,7 +109,6 @@ hr{
     }
 
     .reset{
-        background-color: cadetblue;
         width: 32rem;
         margin: 10px;
         border-radius: 10px;
