@@ -3,9 +3,10 @@ const score = document.querySelector(".score");
 const mainElement = document.querySelector("main");
 const bodyElement = document.querySelector("body");
 
+const pLetters = ["X","O"];
 let selected;
 let scores = [0,0];
-let player = "X";
+let player = pLetters[Math.floor(Math.random()*2)];
 
 let positions = [
   [1, 2, 3],
@@ -25,7 +26,8 @@ function init() {
 
   playerBorder();
 
-  score.innerHTML = `Player X: ${scores[0]}<br/>Player O: ${scores[1]}`;
+  score.innerHTML = `<div style="color:#02AB72">Player ${pLetters[0]}: ${scores[0]}</div><br/>
+  <div style="color:#03D5FB">Player ${pLetters[1]}: ${scores[1]}</div>`;
 
   document.querySelectorAll(".tic-tac button").forEach((item) => {
     item.innerHTML = "";
@@ -45,14 +47,14 @@ function newMove(e) {
     check();
   }, [100]);
 
-  player = player === "X" ? "O" : "X";
+  player = player === pLetters[0] ? pLetters[1] : pLetters[0];
   currentPlayer.innerHTML = `Player's turn: ${player}`;
 
   playerBorder();
 }
 
 function check() {
-  let playerLastMove = player === "X" ? "O" : "X";
+  let playerLastMove = player === pLetters[0] ? pLetters[1] : pLetters[0];
 
   const items = selected
     .map((item, i) => [item, i])
@@ -62,10 +64,10 @@ function check() {
   for (pos of positions) {
     if (pos.every((item) => items.includes(item))) {
       alert("THE PLAYER '" + playerLastMove + "' WIN!");
-      if(playerLastMove === "X"){
+      if(playerLastMove === pLetters[0]){
         scores[0]++;
       }
-      if(playerLastMove === "O"){
+      if(playerLastMove === pLetters[1]){
         scores[1]++;
       }
       init();
@@ -86,23 +88,24 @@ function reset(){
     item.addEventListener("click", newMove);
   });
   if(scores[0] > scores[1]){
-      alert("THE PLAYER 'X' WON THIS MATCH!!");
+      alert(`THE PLAYER ${pLetters[0]} WON THIS MATCH!!`);
     }
     if(scores[1] > scores[0]){
-        alert("THE PLAYER 'O' WON THIS MATCH!!");
+        alert(`THE PLAYER ${pLetters[1]} WON THIS MATCH!!`);
     }
     if(scores[0] == scores[1]){
         alert("DRAW!!");
     }
-    score.innerHTML = `Player X: ${scores[0] = 0}<br/>Player O: ${scores[1] = 0}`;
+    score.innerHTML = `Player ${pLetters[0]}: ${scores[0] = 0}<br/>Player ${pLetters[1]}:
+     ${scores[1] = 0}`;
   init();
 }
 
 function playerBorder(){
-  if(player === "X"){
+  if(player === pLetters[0]){
     mainElement.style.border = "4px inset rgb(0, 228, 0)";
     bodyElement.style.backgroundColor = "#02AB72";
-  } else if(player === "O"){
+  } else if(player === pLetters[1]){
     mainElement.style.border = "4px outset rgb(0, 0, 207)";
     bodyElement.style.backgroundColor = "#03D5FB";
   }
