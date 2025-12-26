@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&family=PT+Serif+Caption:ital@0;1&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "PT Serif Caption", serif;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main{
+    text-align: center;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+h1{
+    font-family: "Fredericka the Great", serif;
+}
+
+hr{
+    font-weight: bold;
+    height: 3px;
+    background: black;
+    margin-bottom: 10px;
+}
+
+.tic-tac {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+.tic-tac button {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 50px;
+    background: #f7f7f7;
+}
+
+.reset{
+    background-color: rgb(240, 255, 27);
+    width: 8rem;
+    margin: 10px;
+    border-radius: 10px;
+    border-style: none;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 15px;
+    box-shadow: 0 5px rgb(203, 216, 23);
+    transition: all .2s;
+}
+
+.reset:active {
+    background-color: rgb(203, 216, 23);
+    box-shadow: 0 2px rgb(203, 216, 23);
+    transform: translateY(4px);
+    transition: all .2s;
+}
+
+.score{
+    line-height: .9;
+    margin: 10px 0px;
+}
+
+@media(min-width: 760px){
+    h1{
+        font-size: 50px;
+    }
+    .tic-tac button{
+        width: 150px;
+        height: 150px;
+        font-size: 80px;
+    }
+    .currentPlayer{
+        font-size: 35px;
+    }
+    .score{
+        font-size: 25px;
+    }
+    .reset{
+        font-size: 25px;
+        width: 15rem;
+    }
+}
+
+@media(min-width: 2500px){
+    h1{
+        font-size: 85px;
+    }
+    .tic-tac button{
+        width: 280px;
+        height: 280px;
+        font-size: 150px;
+    }
+    .currentPlayer{
+        font-size: 65px;
+    }
+    .score{
+        font-size: 50px;
+    }
+    .reset{
+        font-size: 30px;
+        width: 20rem;
+    }
+}
