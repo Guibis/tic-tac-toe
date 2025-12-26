@@ -3,6 +3,8 @@ const score = document.querySelector(".score");
 const mainElement = document.querySelector("main");
 const bodyElement = document.querySelector("body");
 
+const xPlayer = "X"; 
+const oPlayer = "O";
 const pLetters = ["X","O"];
 let selected;
 let scores = [0,0];
@@ -26,8 +28,8 @@ function init() {
 
   playerBorder();
 
-  score.innerHTML = `<div style="color:#02AB72">Player ${pLetters[0]}: ${scores[0]}</div><br/>
-  <div style="color:#03D5FB">Player ${pLetters[1]}: ${scores[1]}</div>`;
+  score.innerHTML = `<div style="color:#02AB72">Player ${xPlayer}: ${scores[0]}</div><br/>
+  <div style="color:#03D5FB">Player ${oPlayer}: ${scores[1]}</div>`;
 
   document.querySelectorAll(".tic-tac button").forEach((item) => {
     item.innerHTML = "";
@@ -47,14 +49,14 @@ function newMove(e) {
     check();
   }, [100]);
 
-  player = player === pLetters[0] ? pLetters[1] : pLetters[0];
+  player = player === xPlayer ? oPlayer : xPlayer;
   currentPlayer.innerHTML = `Player's turn: ${player}`;
 
   playerBorder();
 }
 
 function check() {
-  let playerLastMove = player === pLetters[0] ? pLetters[1] : pLetters[0];
+  let playerLastMove = player === xPlayer ? oPlayer : xPlayer;
 
   const items = selected
     .map((item, i) => [item, i])
@@ -64,10 +66,10 @@ function check() {
   for (pos of positions) {
     if (pos.every((item) => items.includes(item))) {
       alert("THE PLAYER '" + playerLastMove + "' WIN!");
-      if(playerLastMove === pLetters[0]){
+      if(playerLastMove === xPlayer){
         scores[0]++;
       }
-      if(playerLastMove === pLetters[1]){
+      if(playerLastMove === oPlayer){
         scores[1]++;
       }
       init();
@@ -88,24 +90,24 @@ function reset(){
     item.addEventListener("click", newMove);
   });
   if(scores[0] > scores[1]){
-      alert(`THE PLAYER ${pLetters[0]} WON THIS MATCH!!`);
+      alert(`THE PLAYER ${xPlayer} WON THIS MATCH!!`);
     }
     if(scores[1] > scores[0]){
-        alert(`THE PLAYER ${pLetters[1]} WON THIS MATCH!!`);
+        alert(`THE PLAYER ${oPlayer} WON THIS MATCH!!`);
     }
     if(scores[0] == scores[1]){
         alert("DRAW!!");
     }
-    score.innerHTML = `Player ${pLetters[0]}: ${scores[0] = 0}<br/>Player ${pLetters[1]}:
+    score.innerHTML = `Player ${xPlayer}: ${scores[0] = 0}<br/>Player ${oPlayer}:
      ${scores[1] = 0}`;
   init();
 }
 
 function playerBorder(){
-  if(player === pLetters[0]){
+  if(player === xPlayer){
     mainElement.style.border = "4px inset rgb(0, 228, 0)";
     bodyElement.style.backgroundColor = "#02AB72";
-  } else if(player === pLetters[1]){
+  } else if(player === oPlayer){
     mainElement.style.border = "4px outset rgb(0, 0, 207)";
     bodyElement.style.backgroundColor = "#03D5FB";
   }
