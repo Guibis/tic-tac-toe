@@ -109,4 +109,5 @@ function playerBorder(){
     mainElement.style.border = "4px outset rgb(0, 0, 207)";
     bodyElement.style.backgroundColor = "#03D5FB";
   }
+
 }
