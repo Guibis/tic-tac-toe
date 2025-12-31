@@ -70,6 +70,69 @@ hr{
     margin: 10px 0px;
 }
 
+.dialog {
+    margin: auto;
+    border: none;
+    border-radius: 16px;
+    text-align: center;
+    background: #222831;
+    color: #fff;
+    padding: 60px;
+    max-width: 320px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    line-height: 2.5;
+}
+
+.dialog h2 {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.dialog p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.dialog button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #4caf50;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    background-color: transparent;
+    color: #f7f7f7;
+    border: 2px solid #f7f7f7;
+    position: relative;
+}
+
+.dialogButton::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #9b59b6;
+    transition: width 0.3s ease;
+    z-index: -1;
+}
+
+.dialogButton:hover::after {
+    width: 100%;
+}
+
+.dialogButton:hover {
+    color: white;
+}
+
+.dialog button:hover {
+    background: #43a047;
+}
+
 @media(min-width: 760px){
     h1{
         font-size: 50px;

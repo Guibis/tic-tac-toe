@@ -2,6 +2,10 @@ const currentPlayer = document.querySelector(".currentPlayer");
 const score = document.querySelector(".score");
 const mainElement = document.querySelector("main");
 const bodyElement = document.querySelector("body");
+const dialog = document.getElementById("resultDialog");
+const dialogTitle = document.getElementById("dialogTitle");
+const dialogMessage = document.getElementById("dialogMessage");
+const dialogButton = document.getElementById("dialogButton");
 
 const pLetters = ["X","O"];
 let selected;
@@ -37,6 +41,19 @@ function init() {
 
 init();
 
+function showDialog(title, message){
+  dialogTitle.innerHTML = title;
+  dialogMessage.innerHTML = message;
+  dialog.show();
+}
+
+const closeDialog = () => {
+  dialog.close();
+  init();
+};
+
+dialogButton.addEventListener("click", closeDialog);
+
 function newMove(e) {
   const index = e.target.getAttribute("data-i");
   e.target.innerHTML = player;
@@ -62,43 +79,42 @@ function check() {
     .map((item) => item[1]);
 
   for (pos of positions) {
+    
     if (pos.every((item) => items.includes(item))) {
-      alert("THE PLAYER '" + playerLastMove + "' WIN!");
+      showDialog("VICTORY!!", `THE PLAYER '${playerLastMove}' WIN`);
       if(playerLastMove === pLetters[0]){
         scores[0]++;
+        return;
       }
       if(playerLastMove === pLetters[1]){
         scores[1]++;
+        return;
       }
-      init();
-      return;
     }
-  }
-
-  if (selected.filter((item) => item).length === 9) {
-    alert("IT WAS A DRAW!");
-    init();
-    return;
+    if (selected.filter((item) => item).length === 9) {
+      showDialog("DRAW!!", "No winner this time!");
+    }
   }
 }
 
 function reset(){
+
     document.querySelectorAll(".tic-tac button").forEach((item) => {
     item.innerHTML = "";
     item.addEventListener("click", newMove);
   });
   if(scores[0] > scores[1]){
-      alert(`THE PLAYER ${pLetters[0]} WON THIS MATCH!!`);
+      showDialog("VICTORY!!", `THE PLAYER '${pLetters[0]}' WON THIS MATCH!!`);
     }
     if(scores[1] > scores[0]){
-        alert(`THE PLAYER ${pLetters[1]} WON THIS MATCH!!`);
+        showDialog("VICTORY!!", `THE PLAYER '${pLetters[1]}' WON THIS MATCH!!`);
     }
     if(scores[0] == scores[1]){
-        alert("DRAW!!");
+        showDialog("DRAW!!", "No winner this time!");
     }
-    score.innerHTML = `Player ${pLetters[0]}: ${scores[0] = 0}<br/>Player ${pLetters[1]}:
-     ${scores[1] = 0}`;
-  init();
+    
+    scores[0] = 0;
+    scores[1] = 0; 
 }
 
 function playerBorder(){
